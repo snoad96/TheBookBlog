@@ -13,4 +13,14 @@ class Members(models.Model):
     age = models.IntegerField(max_length=3)
 
 
-book = models.ImageField(max_length=100)
+class Post(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    reviewer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="book_posts")
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    book = CloudinaryField('image', default='placeholder', max_length=100)
+    excerpt = models.TextField(blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(User, related_name='book_likes', blank=True)

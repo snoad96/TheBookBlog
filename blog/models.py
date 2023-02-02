@@ -15,7 +15,9 @@ class Member(models.Model):
 
 class Posts(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    author = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    publication_date = models.DateField()
     reviewer = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="book_posts")
     updated_on = models.DateTimeField(auto_now=True)

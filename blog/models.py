@@ -50,5 +50,7 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
+# --Add in later
+
 # class Tag(models.Model):
 #     name = models.CharField(max_length=50, unique=True)

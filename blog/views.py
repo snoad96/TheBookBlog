@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.view.generic import ListView
 
-# Create your views here.
+from .models import Member
+
+
+class ListMember(ListView):
+    model = Member

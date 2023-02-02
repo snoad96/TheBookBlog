@@ -19,7 +19,6 @@ from django.urls import path, include
 # from blog import MemberList
 
 urlpatterns = [
+    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
-    path('summernote/', include('django_summernote.urls')),
-    # path('member_list/', MemberList.as_view()),
 ]

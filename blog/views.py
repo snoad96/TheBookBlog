@@ -1,15 +1,12 @@
 from django.shortcuts import render
-from django.view.generic import ListView, generic
-
-from .models import Member, Posts
-
-
-class MemberList(ListView):
-    model = Member
+from django.utils import timezone
+from .models import Post
 
 
-class PostList(generic.ListView):
-    model = Posts
-    queryset = Posts(objects.filter(status=1).order_by('-created_on'))
-    template_name = 'index.html'
-    paginate_by = 8
+def welcome(request):
+    return render(request, 'blog/welcome.html')
+
+
+def postlist(request):
+    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'blog/postlist.html', {'posts': queryset})

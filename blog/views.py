@@ -4,5 +4,5 @@ from django.view.generic import ListView
 from .models import Member
 
 
-class ListMember(ListView):
+class MemberList(ListView):
     model = Member

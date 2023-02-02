@@ -10,7 +10,7 @@ class Members(models.Model):
     lname = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     passwd = models.CharField(max_length=50)
-    age = models.IntegerField(max_length=3)
+    age = models.IntegerField()
 
 
 class Posts(models.Model):
@@ -27,10 +27,27 @@ class Posts(models.Model):
     likes = models.ManyToManyField(User, related_name='book_likes', blank=True)
 
     class Meta:
-        odering = ['published_date']
+        ordering = ['created_on']
 
     def __str__(self):
         return self.title
 
     def number_of_book_likes(self):
         return self.likes.count()
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    body = models.TextField()
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name='comments')
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created']
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
+
+
+# class Tag(models.Model):
+#     name = models.CharField(max_length=50, unique=True)

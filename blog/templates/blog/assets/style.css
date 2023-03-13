@@ -1,0 +1,29 @@
+/* Base CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu {
+    background-color: #a58fa5;
+    font-family: 'Merriweather', serif;
+}
+
+/* Links to social media */
+ul {
+    display: grid;
+    flex-direction: row;
+}
+
+ul:hover {
+    background-image: none;
+    transition: transform 150ms;
+    transform: scale(1.05);
+    cursor: pointer;
+}

@@ -3,10 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: bisque;
 }
 
 body {
-    background-color: blue;
+    background-color: red;
     font-family: 'Times New Roman', Times, serif;
 }
 

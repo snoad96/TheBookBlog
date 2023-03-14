@@ -28,3 +28,7 @@ ul:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+.container-fluid {
+    width: 100%;
+}

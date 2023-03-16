@@ -1,8 +1,23 @@
 {% load static %}
-<link rel="stylesheet" href="{ $ static 'style.css'$}">
+<link rel="stylesheet" href="{ $ blog/static 'style.css'$}">
 
 <body>
 {% block content %}
+
+<nav>
+    <ul id="menu">
+        <li> 
+            <a href="#">Sign in</a>
+        </li>
+        <li> 
+            <a href="#">Welcome Page</a>
+        </li>
+        <li> 
+             <a href="#" class="active">Read a Book</a>
+        </li>
+
+    </ul>
+</nav>
 
 <h1>Hello World</h1>
 

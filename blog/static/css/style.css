@@ -6,6 +6,12 @@
     color: bisque;
 }
 
+.menu {
+    background-color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+
 body {
     background-color: red;
     font-family: 'Times New Roman', Times, serif;

@@ -1,6 +1,8 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <link rel="stylesheet" href="{ $ blog/static 'style.css'$}">
-
+<title>Login Page</title>
 <body>
 {% block content %}
 
@@ -18,10 +20,14 @@
 
     </ul>
 </nav>
+<h1>Hello Log in page</h1>
+<p>Please Log in here</p>
 
-<h1>Hello Sign in page</h1>
-
-<p>Please Sign in here</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log in</button>
+</form>
 
 </body>
 

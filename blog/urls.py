@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.welcome, name='welcome'),
+    path('welcome', TemplateView.as_view(template_name='welcome.html'), name='welcome'),
     path('blog/', views.postlist, name='postlist'),
-    path('login/', views.signin, name='login'),
+    path('login/', views.login, name='login'),
     path('accounts/', include("django.contrib.auth.urls")),
 ]

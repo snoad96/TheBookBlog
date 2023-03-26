@@ -1,4 +1,6 @@
 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-       <link rel="stylesheet" href="{ $ static 'style.css'$}">
+       <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
     </head>
     <body>
 
@@ -49,5 +51,5 @@
 </footer>
 
 <!--font awesome script-->
-<script src="https://kit.fontawesome.com/ea5c24b53f.js" crossorigin="anonymous"></script>"
+<script src="https://kit.fontawesome.com/ea5c24b53f.js" crossorigin="anonymous"></script>
 </html>

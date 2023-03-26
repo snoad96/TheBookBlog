@@ -1,11 +1,7 @@
-{% load static %}
-<head>
-<html lang="en">
-<link rel="stylesheet" href="{ $ blog/static 'style.css'$}">
-</head>
-<body>
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
+
 {% block title %}Welcome{% endblock %}
+
 {% block content %}
 {% if user.id_authenticated %}
     Welcome! {{ user.username }}!
@@ -39,6 +35,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}
-</body>
-</html>

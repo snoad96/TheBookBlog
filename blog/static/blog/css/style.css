@@ -31,9 +31,15 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    color: blueviolet;
   }
 /* Links to social media */
-ul {
+footer.ul {
+    display: grid;
+    flex-direction: row;
+}
+
+.social-networks.ul {
     display: grid;
     flex-direction: row;
 }

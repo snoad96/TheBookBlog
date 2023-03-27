@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Merriweather&display=swap');
+
 /* Base CSS */
 * {
     margin: 0;
@@ -7,28 +9,36 @@
 }
 
 #menu {
-    background-color: red;
+    background-color: rgb(7, 6, 78);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
+
 }
 
 body {
-    background-color: red;
-    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(99, 7, 7, 0.57);
+    font-family: 'Gentium Book Plus', serif;
 }
 
 .menu {
-    background-color: #a58fa5;
+    background-color: red;
     font-family: 'Merriweather', serif;
 }
 
+/* footer */
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 /* Links to social media */
 ul {
     display: grid;
     flex-direction: row;
 }
 
-ul:hover {
+.social-networks.ul:hover {
     background-image: none;
     transition: transform 150ms;
     transform: scale(1.05);

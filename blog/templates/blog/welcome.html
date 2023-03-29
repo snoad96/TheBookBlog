@@ -13,20 +13,27 @@
                 <div class="row">
                 {% for post in posts %}
                 </br>
-                <div class="row">
+                <div class="row justify-content-evenly">
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 1</div>
-                    <div class="col-md-4"><div class="p-3 border bg-dark"></div>col 2</div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div>col 2</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 3</div>
-                    <div class="col-md-4"><div class="p-3 border bg-dark"></div>col 4</div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div>col 4</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 5</div>
-                    <div class="col-md-4"><div class="p-3 border bg-dark"></div>col 5</div>
-                  
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div>col 5</div>
+        
+<!-- To make image into a thumbnail -->            
+<img src="..." class="img-thumbnail" alt="...">
+
+<!-- To align images together -->
+<img src="..." class="rounded float-start" alt="...">
+<img src="..." class="rounded float-end" alt="...">
+
                   <h2>{{ post.title }}</h2>
                   <p>{{ post.text }}</p>
                   <img src="{{ post.cover.url }}">
                 </div>
                 
-                {% if forloop.counter|divisibleby:4 %}
+                <!--{% if forloop.counter|divisibleby:4 %}-->
                 <div class="row">
                 {% endif %}
                 {% endfor %}

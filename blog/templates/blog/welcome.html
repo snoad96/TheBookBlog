@@ -14,13 +14,19 @@
                 {% for post in posts %}
                 </br>
                 <div class="row justify-content-evenly">
-                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."></div>
-                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."></div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."><h2>{{ post.title }}</h2>
+                    <p>{{ post.text }}</p>
+                    <img src="{{ post.cover.url }}">
+                  </div></div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."><h2>{{ post.title }}</h2>
+                    <p>{{ post.text }}</p>
+                    <img src="{{ post.cover.url }}">
+                  </div></div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 3</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 4</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 5</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 5</div>
-        
+                
 <!-- To make image into a thumbnail -->            
 <img src="..." class="img-thumbnail" alt="...">
 
@@ -32,7 +38,7 @@
                   <img src="{{ post.cover.url }}">
                 </div> -->
                 
-                <!--{% if forloop.counter|divisibleby:4 %}-->
+                {% if forloop.counter|divisibleby:4 %}
                 <div class="row">
                 {% endif %}
                 {% endfor %}
@@ -40,11 +46,10 @@
             </div>
         </div>
     </div>
+    
 {% else %}
     <p>sorry! you have not logged in correctly </p>
     <a href="{% url 'login' %}">Log in Here</a>
-
-<h1>Hello World</h1>
-
+  
 {% endif %}
 {% endblock %}

@@ -4,7 +4,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    Welcome! {{ user.username }}!
+    Welcome {{ user.username }} To the BookBlog Website!
     <div class="container-fluid">
         <div class="row">
 <br>    
@@ -14,8 +14,8 @@
                 {% for post in posts %}
                 </br>
                 <div class="row justify-content-evenly">
-                    <div class="col-md-4"><div class="p-3 border bg-light"></div>col 1</div>
-                    <div class="col-md-4"><div class="p-3 border bg-light"></div>col 2</div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."></div>
+                    <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."></div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 3</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 4</div>
                     <div class="col-md-4"><div class="p-3 border bg-light"></div>col 5</div>
@@ -25,13 +25,12 @@
 <img src="..." class="img-thumbnail" alt="...">
 
 <!-- To align images together -->
-<img src="..." class="rounded float-start" alt="...">
-<img src="..." class="rounded float-end" alt="...">
 
-                  <h2>{{ post.title }}</h2>
+
+<!--                  <h2>{{ post.title }}</h2>
                   <p>{{ post.text }}</p>
                   <img src="{{ post.cover.url }}">
-                </div>
+                </div> -->
                 
                 <!--{% if forloop.counter|divisibleby:4 %}-->
                 <div class="row">

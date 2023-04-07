@@ -20,3 +20,9 @@ def postlist(request):
 
 def login(request):
     return render(request, 'blog/login.html')
+
+
+def detail(request):
+    id = request.GET.get('id', '')
+    post = Post.objects.get(pk=id)
+    return render(request, 'blog/detail.html', {'post': post})

@@ -1,26 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="{ $ blog/static 'style.css'$}">
-<title>Login Page</title>
-<body>
+{% extends 'blog/base.html' %}
+
+{% block title %}Log In{% endblock %}
+
 {% block content %}
 
-<nav>
-    <ul id="menu">
-        <li> 
-            <a href="#">Sign in</a>
-        </li>
-        <li> 
-            <a href="#">Welcome Page</a>
-        </li>
-        <li> 
-             <a href="#" class="active">Read a Book</a>
-        </li>
-
-    </ul>
-</nav>
-<h1>Hello Log in page</h1>
+<body>
+<h1>Welcome!!!</h1>
 <p>Please Log in here</p>
 
 <form method="post">
@@ -30,31 +15,5 @@
 </form>
 
 </body>
-
-<footer>
-    <ul class="social-networks">
-        <li>
-            <a href="https://facebook.com" target="_blank" rel="noopener" 
-            aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
-        </li>
-        <li>
-            <a href="https://twitter.com" target="_blank" rel="noopener" 
-            aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-square-twitter"></i></a>
-        </li>
-        <li>
-            <a href="https://youtube.com" target="_blank" rel="noopener" 
-            aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-square-youtube"></i></a>
-        </li>
-        <li>
-            <a href="https://instagram.com" target="_blank" rel="noopener" 
-            aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
-        </li>
-    </ul>
-</footer>
-
-<!--font awesome script-->
-<script src="https://kit.fontawesome.com/ea5c24b53f.js" crossorigin="anonymous"></script>"
-</body>
-</html>
 
 {% endblock %}

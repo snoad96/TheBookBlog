@@ -5,13 +5,14 @@
 {% block content %}
 {% if user.is_authenticated %}
     Welcome {{ user.username }} To the BookBlog Website!
+
+{% for post in posts %}
     <div class="container-fluid">
         <div class="row">
 <br>    
             <!-- Book Entries Column -->
             <div class="col-12 mt-3 left">
                 <div class="row">
-                {% for post in posts %}
                 </br>
                 <div class="row justify-content-evenly">
                     <div class="col-md-4"><div class="p-3 border bg-light"></div><img src="{{ post.cover.url }}" class="img-thumbnail" alt="..."><h2>{{ post.title }}</h2>

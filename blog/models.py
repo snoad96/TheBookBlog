@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from users.models import User
+from django.contrib.auth.models import User
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -12,6 +13,8 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     cover = models.ImageField(null=True)
+#   likes = models.ManyToManyField(User, default=None, blank=True)
+#   updated = models.DateTimeField(auto_now_add=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -20,8 +23,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def number_of_likes(self):
-        return self.likes.count()
+        return self.likes.all().count()
 
 
 class Meta:

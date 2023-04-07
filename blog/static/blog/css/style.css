@@ -58,3 +58,8 @@ footer.ul {
 .post {
     margin-bottom: 20px;
 }
+
+.img-thumbnail {
+    max-width: 400px;
+    max-height: 400px;
+}

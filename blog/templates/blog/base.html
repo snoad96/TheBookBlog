@@ -22,7 +22,11 @@
 <nav>
     <ul id="menu">
         <li> 
+            {% if user.is_authenticated %}
+            <a href="/accounts/logout/">Log out</a>
+            {% else %}
             <a href="/accounts/login/" class="active">Log in</a>
+            {% endif %}
         </li>
         <li> 
             <a href='/'>Welcome Page</a>

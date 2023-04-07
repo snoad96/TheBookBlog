@@ -10,8 +10,10 @@
         <div class="row justify-content-evenly">  
             <!-- Book Entries Column -->
             {% for post in posts %}
-                <div class="col-md-4"><img src="{{ post.cover.url }}" class="img-thumbnail" alt="{{ post.title }}"><h2>{{ post.title }}</h2>
-                <p>{{ post.text }}</p>
+                <div class="col-md-4">
+                    <img src="{{ post.cover.url }}" class="img-thumbnail" alt="{{ post.title }}">
+                    <h2><a href="/detail/?id={{ post.id }}">{{ post.title }}</a></h2>
+                    <p>{{ post.text }}</p>
                 </div>
             {% endfor %}
         </div>

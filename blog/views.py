@@ -25,4 +25,7 @@ def login(request):
 def detail(request):
     id = request.GET.get('id', '')
     post = Post.objects.get(pk=id)
-    return render(request, 'blog/detail.html', {'post': post})
+
+# def comments = post.get_comments_For_post
+
+#    return render(request, 'blog/detail.html', {'post': post, 'comments': comments})

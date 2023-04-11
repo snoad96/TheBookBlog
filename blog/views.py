@@ -8,7 +8,7 @@ def welcome(request):
     return render(request, 'blog/welcome.html', {'posts': queryset})
 
 
-# @permission_required
+@permission_required
 def postlist(request):
     queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/postlist.html', {'posts': queryset})
@@ -21,13 +21,17 @@ def login(request):
 def detail(request):
     id = request.GET.get('id', '')
     post = Post.objects.get(pk=id)
+    return render(request, 'blog/detail.html', {'post': post})
 
 
-def comments(request): 
-    CommentForm = post.get_comments_For_post
-    text = request.POST.post('text')
-    post = request.POST.post(Post, related_name='blogid', on_delete=models.CASCADE)
-    add_comment = Comment.objects.create(body=text, post=post, related_name='AddComment')
+def comments(request):
+    post = Post.objects.get(pk=request.POST.get('post_id'))
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.post = post
+        comment.save()
+    return redirect('post_detail', id=post.pk)
 
 
 class AddComment(View):

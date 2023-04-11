@@ -1,12 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from users.models import User
-from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-import requests
 from django.views import View
 from django.shortcuts import render, redirect
-from .models import Post, Comment
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -15,9 +13,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    created_on = models.DateTimeField(default=timezone.now)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    cover = models.ImageField(null=True)
+    cover = CloudinaryField('image', null=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
     updated = models.DateTimeField(auto_now_add=True)
 
@@ -32,9 +31,8 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.all().count()
 
-
-class Meta:
-    ordering = ['-created_on']
+    class Meta:
+        ordering = ['-created_on']
 
 
 class Member(models.Model):
@@ -63,7 +61,7 @@ class AddComment(View):
     def post(self, request, pk):
         single_post = Post.objects.get(pk=pk)
         content = request.POST.get('addcomment')
-        comment = Comment.objects.create(post=single_post, name=request.user.username, content=content)
+        comment = Comment.objects.create(post=single_post, name=request.user.username, body=content)
         return redirect('post_detail', pk=pk)
 
     def __str__(self):

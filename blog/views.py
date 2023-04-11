@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.contrib.auth.decorators import permission_required
 from .models import Post, Comment
+from .forms import CommentForm
+from django.views import View
 
 
 def welcome(request):
@@ -25,6 +28,7 @@ def detail(request):
 
 
 def comments(request):
+    from .models import Comment
     post = Post.objects.get(pk=request.POST.get('post_id'))
     form = CommentForm(request.POST)
     if form.is_valid():

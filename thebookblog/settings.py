@@ -142,9 +142,9 @@ MEDIA_URL = '/media/'
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': os.environ.get('dhyfkvpny'),
+    'API_KEY': os.environ.get('991393361914617'),
+    'API_SECRET': os.environ.get('uMD9KE2nYIST7uW8CDR484f8rwE'),
 }
 
 # Default primary key field type

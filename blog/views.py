@@ -1,15 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post
+from .models import Post, Comment
 
 
 def welcome(request):
     queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/welcome.html', {'posts': queryset})
-
-# def thumbnail(self):
-#        return format_html(f'<img src="{self.photo.url}" height="50">')
-#   thumbnail.allow_tags = True
 
 
 # @permission_required
@@ -26,6 +22,24 @@ def detail(request):
     id = request.GET.get('id', '')
     post = Post.objects.get(pk=id)
 
-# def comments = post.get_comments_For_post
 
-#    return render(request, 'blog/detail.html', {'post': post, 'comments': comments})
+def comments(request): 
+    CommentForm = post.get_comments_For_post
+    text = request.POST.post('text')
+    post = request.POST.post(Post, related_name='blogid', on_delete=models.CASCADE)
+    add_comment = Comment.objects.create(body=text, post=post, related_name='AddComment')
+
+
+class AddComment(View):
+    def post(self, request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+        else:
+            return redirect('post_detail', pk=post.pk)
+
+    return render(request, 'blog/detail.html', {'post': post, 'comments': comments})

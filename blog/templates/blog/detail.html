@@ -11,18 +11,23 @@
             <h2>{{ post.title }}</h2>
             <p>{{ post.text }}</p>
             {% for comment in comments %}
-            display comment
+                <div class="comment">
+                    <p>{{ comment.body }}</p>
+                    <p>by {{ comment.name }}, {{ comment.created }}</p>
+                </div>
             {% endfor %}
         </div>
 
         <div class="mb-6">
             <div style="margin: 10px">
-                Add a comment here: 
-
-
-
-
-                
+                <form method="post" action="{% url 'add_comment' pk=post.pk %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="addcomment">Add a comment:</label>
+                        <textarea class="form-control" id="addcomment" name="body" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
 

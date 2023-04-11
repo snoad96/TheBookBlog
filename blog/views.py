@@ -42,8 +42,6 @@ class AddComment(View):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('post_detail', id=post.pk)
         else:
-            return redirect('post_detail', pk=post.pk)
-
-    return render(request, 'blog/detail.html', {'post': post, 'comments': comments})
+            return redirect('post_detail', id=post.pk)

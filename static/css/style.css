@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: bisque;
+    color: rgb(20, 2, 2);
 }
 
 #menu {
@@ -31,7 +31,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    color: blueviolet;
+    color: rgb(5, 5, 5);
   }
 /* Links to social media */
 footer.ul {
